@@ -29,10 +29,26 @@ for item in windows:
 
 ```
 
-You can easily modify and apply windows styles to individual windows based on HWNDs! Almost all functions in winattr.py only require the HWND as the argument, making interacting with windows much much simpler
+You can easily modify and apply windows styles to individual windows based on HWNDs! Almost all functions in winattr.py only require the HWND as the argument, making interacting with windows much much simpler. Examples include:
+- ghost(hwnd). Makes the window see through and click through
+- adjust_window(hwnd, x=None, y=None, width=None, height=None). Resize or move the window
+- get_name(hwnd) and set_name(hwnd). Get the title or set the title of the window. However, the window's program will usually change the title back internally after an event
+- set_alpha(hwnd, value). Set the transparency of the window
+- bring_top(hwnd). Brings a window to the top.
+- pin(hwnd). Brings a window to the top, but you can't click away. unpin(hwnd) to unpin it
+
+Helper functions
+- get_windows(pretty=False). Returns a list of tuples, (hwnd, name)
+- winfov(hwnd). Stands for window info verbose, returns all styles of a window
+
+Improvements should be made, such as:
+- Window order management. Get the topmost window, or based on Z order of stacking
+- Better window creation management
 
 `win_constants.py` includes massive amounts of constants and structures so you will never have to define them again.
 
 `winattr.py` includes functions to apply WS_STYLES and WS_EX_STYLES to individual windows.
 
 `winmgr.py` and `mouse.py` need more development. Keyboard wrappers are still in development.
+
+Note: Run on a Windows 10 machine. May not work on other versions. 
