@@ -2,11 +2,11 @@
 
 Ctypes wrapper
 
-## ARE YOU TIRED OF MANUALLY DEFINING WIN32 API CONSTANTS OVER AND OVER?
+### ARE YOU TIRED OF MANUALLY DEFINING WIN32 API CONSTANTS OVER AND OVER?
 
-## DO YOU ABSOLUTELY HATE WIN32 API?
+### DO YOU ABSOLUTELY HATE WIN32 API?
 
-## HAVE YOU EVER TRIED TO GET INTO CTYPES BUT FELT TOO INTIMIDATED BY THE STRUCTURES?
+### HAVE YOU EVER TRIED TO GET INTO CTYPES BUT FELT TOO INTIMIDATED BY THE STRUCTURES?
 
 ## WELL FEAR NOT, FOR ABSTRACTION IS HERE TO SAVE THE DAY!
 
@@ -29,7 +29,7 @@ for item in windows:
 
 ```
 
-You can easily modify and apply windows styles to individual windows based on HWNDs!
+You can easily modify and apply windows styles to individual windows based on HWNDs! Almost all functions in winattr.py only require the HWND as the argument, making interacting with windows much much simpler
 
 `win_constants.py` includes massive amounts of constants and structures so you will never have to define them again.
 
