@@ -85,7 +85,8 @@ Mouse.click(button, duration) to click
 * `winattr.py`: Includes functions to apply WS_STYLES and WS_EX_STYLES to individual windows.
 * `winmgr.py`: spawn(class, title) to spawn a blank, white window. It still requires more development
 * Keyboard wrappers: Still in development.
-
+* `cli-hide.py`: My personal CLI tool. Run `win` without args to list windows, `win alias <HWND> <NAME>` to make an alias to a window handle (it's really convenient), and `win hide <ALIAS>` to hide that window. `win list` to list hidden aliases and hidden windows.
+  WARNING: HWNDs are not persistent. If a window closes or a process terminates, the HWND will be invalid.
 ---
 
 ## Future Improvements
