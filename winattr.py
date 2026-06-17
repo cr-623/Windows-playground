@@ -174,23 +174,18 @@ def set_name(hwnd, title):
 def get_windows(pretty=False):
     windows = []
     EnumWindowsProc = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HWND, wintypes.LPARAM)
-
     def callback(hwnd, lparam):
         if wc.user32.IsWindowVisible(hwnd):
             title = get_name(hwnd)
             if title:
-                windows.append({"hwnd": hwnd, "title": title})
+                windows.append((hwnd, title))
         return True
 
     wc.user32.EnumWindows(EnumWindowsProc(callback), 0)
-    
     if pretty:
         print(f"{'HWND':<12} | {'TITLE'}")
         print("-" * 40)
-        for w in windows:
-            print(f"{hex(w['hwnd']):<12} | {w['title']}")
+        for hwnd, title in windows:
+            print(f"{hex(hwnd):<12} | {title}")
             
     return windows
-
-if __name__ == "__main__":        
-    hwnd = 0x00D3211E
