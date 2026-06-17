@@ -36,14 +36,13 @@ You can hide all the windows in your desktop. Good luck getting them back!
 ### Look at it bounce!
 ![image](demo/Bounce.gif)
 
-This could be you!!
-
 ---
 
 
 
 ## Features & Usage
 
+### winattr.py
 You can easily modify and apply windows styles to individual windows based on HWNDs! Almost all functions in winattr.py only require the HWND as the argument, making interacting with windows much much simpler. Examples include:
 
 * **ghost(hwnd)**: Makes the window see through and click through
@@ -59,13 +58,32 @@ You can easily modify and apply windows styles to individual windows based on HW
 * **get_windows(pretty=False)**: Returns a list of tuples, (hwnd, name)
 * **winfov(hwnd)**: Stands for window info verbose, returns all styles of a window
 
+### mouse.py
+Instead of a setter/getter, the mouse properties have been conveniently wrapped in a `@property`, allowing you to access or modify the variable simply by calling mouse
+
+```python
+import mouse
+import time
+Rodent = mouse.Mouse()
+print(f"Mouse X position: {Rodent.x}")
+Rodent.x = 150
+print("Hold down your mouse!")
+time.sleep(2)
+if Rodent.left_pressed:
+    print("Left mouse button pressed!")
+elif not Rodent.left_pressed:
+    print(r"You didn't press the button :C")
+
+```
+Mouse.click(button, duration) to click
+0 for LMB, 1 for RMB, and 2 for MMB
+
 ---
 
-## Module Overview
-
+## Other modules
 * `win_constants.py`: Includes massive amounts of constants and structures so you will never have to define them again.
 * `winattr.py`: Includes functions to apply WS_STYLES and WS_EX_STYLES to individual windows.
-* `winmgr.py` and `mouse.py`: Need more development.
+* `winmgr.py`: spawn(class, title) to spawn a blank, white window. It still requires more development
 * Keyboard wrappers: Still in development.
 
 ---
@@ -74,11 +92,13 @@ You can easily modify and apply windows styles to individual windows based on HW
 
 * Window order management. Get the topmost window, or based on Z order of stacking
 * Better window creation management
+* Window event managment
 
 ---
 
 ## Note
 
 Run on a Windows 10 machine. May not work on other versions.
+
 
 ---
